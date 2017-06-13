@@ -1,0 +1,68 @@
+<html>
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <html lang="en">
+    <title>Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.js"></script>
+
+  <script type="text/javascript">
+    function WriteCookie()
+    {
+       if( document.myform1.customer.value == "" ){
+          alert("Enter some value!");
+          return;
+       }
+       cookievalue= escape(document.myform1.customer.value) + ";";
+       document.cookie="name=" + cookievalue;
+    }
+
+    function ReadCookie()
+     {
+        var allcookies = document.cookie;
+
+        // Get all the cookies pairs in an array
+        cookiearray = allcookies.split(';');
+
+        // Now take key value pair out of this array
+        for(var i=0; i<cookiearray.length; i++){
+           name = cookiearray[i].split('=')[0];
+           value = cookiearray[i].split('=')[1];
+        }
+        cityName = value;
+        document.getElementById("city").value=cityName;
+        console.log(document.getElementById("city").value);
+     }
+     </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<my-app>Loading...</my-app>
+
+<script>
+    System.config({
+        packages: {
+            app: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+    });
+    System.import('app/boot')
+            .then(null, console.error.bind(console));
+
+</script>
+</body>
+</html>
