@@ -57,7 +57,7 @@ import {System} from "./../system"
     <div class="panel panel-danger">
       <ul class="list-group">
         <li class="list-group-item">
-          <p>Want to see the weather of your last research ? </p>
+          <p>Want to see the weather of your last research ? cjksc</p>
           <span class="input-group-btn">
             <button  type="submit" onclick="ReadCookie()" class="btn btn-danger btn-block btn-large">GO</button>
           </span>
@@ -68,7 +68,7 @@ import {System} from "./../system"
 
   <div class="col-md-3 col-md-offset-2">
     <div class="panel panel-danger">
-      <div class="panel-heading">Select your city jgbksbvkj</div>
+      <div class="panel-heading">Select your city</div>
       <ul class="list-group">
         <li class="list-group-item">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm" name="myform1" action="">
