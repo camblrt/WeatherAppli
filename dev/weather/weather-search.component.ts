@@ -68,7 +68,7 @@ import {System} from "./../system"
 
   <div class="col-md-3 col-md-offset-2">
     <div class="panel panel-danger">
-      <div class="panel-heading">Select your city</div>
+      <div class="panel-heading">Select your city jgbksbvkj</div>
       <ul class="list-group">
         <li class="list-group-item">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm" name="myform1" action="">
