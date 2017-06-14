@@ -57,9 +57,9 @@ import {System} from "./../system"
     <div class="panel panel-danger">
       <ul class="list-group">
         <li class="list-group-item">
-          <p>Want to see the weather of your last research ? cjksc</p>
+          <p>Want to see the weather of your last research ?</p>
           <span class="input-group-btn">
-            <button  type="submit" onclick="ReadCookie()" class="btn btn-danger btn-block btn-large">GO</button>
+            <button  type="submit" onclick="ReadCookie()" class="btn btn-danger btn-block btn-large">GO !!</button>
           </span>
         </li>
       </ul>
