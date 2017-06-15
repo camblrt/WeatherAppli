@@ -3,35 +3,35 @@ import {WeatherItem} from "./weather-item"
 @Component({
     selector: 'weather-item',
     template: `
-    <div class="col-md-8 col-md-offset-1">
+    <div class="col-md-8 col-md-offset-2" >
       <div class="panel panel-danger">
       <div class="panel-heading">{{weatherItem.cityName}}</div>
       <ul class="list-group">
         <li class="list-group-item">
-        <div align="center">
-          <h3>TODAY</h3>
-          <div class="temp">{{weatherItem.temperature0}}°{{weatherItem.unit}}<span class="icon-brightness-half"></span></div>
-          <div class="temp">{{weatherItem.description0}}</div>
-          <img src="http://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/{{weatherItem.icon0}}.png" width="100">
-        </div>
+          <div align="center">
+            <h3>TODAY</h3>
+            <div class="temp">{{weatherItem.temperature0}}°{{weatherItem.unit}}<span class="icon-brightness-half"></span></div>
+            <div class="temp">{{weatherItem.description0}}</div>
+            <img src="http://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/{{weatherItem.icon0}}.png" width="100">
+            </div>
         </li>
         <li class="list-group-item">
           <div align="center">
             <ul id="myTab1" class="nav nav-tabs nav-justified">
               <li class="active"><a data-toggle="tab">
-                <h5>TOMORROW / </h5>
+                <h5>TOMORROW </h5>
                 <div>{{weatherItem.temperature1}}°{{weatherItem.unit}}<span class="icon-brightness-half"></span></div>
                 <div>{{weatherItem.description1}}</div>
                 <img src="http://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/{{weatherItem.icon1}}.png" width="100">
               </a></li>
               <li class="active"><a data-toggle="tab">
-                <h5>IN TWO DAYS / </h5>
+                <h5>IN TWO DAYS </h5>
                 <div>{{weatherItem.temperature2}}°{{weatherItem.unit}}<span class="icon-brightness-half"></span></div>
                 <div>{{weatherItem.description2}}</div>
                 <img src="http://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/{{weatherItem.icon2}}.png" width="100">
               </a></li>
               <li class="active"><a data-toggle="tab">
-                <h5>IN THREE DAYS / </h5>
+                <h5>IN THREE DAYS </h5>
                 <div>{{weatherItem.temperature3}}°{{weatherItem.unit}}<span class="icon-brightness-half"></span></div>
                 <div>{{weatherItem.description3}}</div>
                 <img src="http://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/{{weatherItem.icon3}}.png" width="100">
@@ -43,7 +43,7 @@ import {WeatherItem} from "./weather-item"
                 <img src="http://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/{{weatherItem.icon4}}.png" width="100">
               </a></li>
             </ul>
-        </div>
+          </div>
         </li>
       </ul>
     </div>

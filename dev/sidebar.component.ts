@@ -9,15 +9,16 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
     selector: 'my-sidebar',
     template:`
     <div class="col-md-3 col-md-offset-1">
-        <section class="box widget locations">
-          <div class="jumbotron-photo"><img src="img/Jumbotron.jpg" /></div>
+      <section class="box widget locations">
+        <div class="jumbotron-photo"><img src="img/Jumbotron.jpg" /></div>
           <div class="jumbotron-contents">
-            <h2> Saved Profiles </h2>
-            <button (click)="onSaveNew()" class="btn btn-danger btn-block btn-large">Save List to Profile</button>
             <article class="profile" *ngFor="#profile of profiles" (click)="onLoadProfile(profile)">
-              <h2>{{profile.profileName}}</h2>
-              <p>Cities : {{profile.cities.join(', ')}}</p>
-              <span class = "delete" (click)="onDeleteProfile($event, profile)">X</span>
+                <div class="panel panel-danger">
+                  <div class="panel-heading"><h2>{{profile.profileName}}</h2></div>
+                  </div>
+                  <button type="button" class="btn btn-default btn-block"><h4>Cities : {{profile.cities.join(', ')}}</h4></button>
+                    <button class = "delete" (click)="onDeleteProfile($event, profile)">X</button>
+
             </article>
           </div>
         </section>
@@ -34,14 +35,6 @@ export class SidebarComponent implements OnInit{
   constructor(private _profileService: ProfileService,
               private _weatherService: WeatherService){}
 
-
-  onSaveNew(){
-    const cities = this._weatherService.getWeatherItems().map(function(element:
-    WeatherItem){
-      return element.cityName;
-    });
-    this._profileService.saveNewProfile(cities);
-  }
 
   onLoadProfile(profile: Profile){
 
