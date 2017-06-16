@@ -19,10 +19,6 @@
   <script type="text/javascript">
     function WriteCookie() //Reception and backup of the cookie : last city
     {
-       if( document.myform1.customer.value == "" ){
-          alert("Enter some value!");
-          return;
-       }
        cookievalue= escape(document.myform1.customer.value) + ";";
        document.cookie="name=" + cookievalue;
        Current_Date();

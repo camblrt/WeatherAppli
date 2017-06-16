@@ -8,12 +8,6 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 @Component({
     selector: 'my-sidebar',
     template:`
-    <!--Display of the date -->
-    <input type="text" id="date0" hidden>
-    <input type="text" id="date1" hidden>
-    <input type="text" id="date2" hidden>
-    <input type="text" id="date3" hidden>
-    <input type="text" id="date4" hidden>
 
     <!--Display of the profile window with the default cities-->
     <div class="col-md-3 col-md-offset-1">
@@ -24,7 +18,7 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
                 <div class="panel panel-danger">
                   <div class="panel-heading"><h2>{{profile.profileName}}</h2></div>
                   </div>
-                  <button type="button" class="btn btn-default btn-block"><h4>Cities : {{profile.cities.join(', ')}}</h4></button>
+                  <button type="button" onclick="WriteCookie()" class="btn btn-default btn-block"><h4>Cities : {{profile.cities.join(', ')}}</h4></button>
                     <button class = "delete" (click)="onDeleteProfile($event, profile)">X</button>
 
             </article>
