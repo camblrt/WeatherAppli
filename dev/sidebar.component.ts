@@ -8,6 +8,13 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 @Component({
     selector: 'my-sidebar',
     template:`
+    <!--Display of the date -->
+    <input type="text" id="date0" hidden>
+    <input type="text" id="date1" hidden>
+    <input type="text" id="date2" hidden>
+    <input type="text" id="date3" hidden>
+    <input type="text" id="date4" hidden>
+
     <!--Display of the profile window with the default cities-->
     <div class="col-md-3 col-md-offset-1">
       <section class="box widget locations">
