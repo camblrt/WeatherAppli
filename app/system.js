@@ -5,6 +5,7 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
+            //Constructor of the system
             System = (function () {
                 function System(name) {
                     this.name = name;
@@ -16,4 +17,4 @@ System.register([], function(exports_1, context_1) {
     }
 });
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN5c3RlbS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O1lBQUE7Z0JBRUUsZ0JBQVksSUFBWTtvQkFDdEIsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7Z0JBQ25CLENBQUM7Z0JBQ0gsYUFBQztZQUFELENBTEEsQUFLQyxJQUFBO1lBTEQsMkJBS0MsQ0FBQSIsImZpbGUiOiJzeXN0ZW0uanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY2xhc3MgU3lzdGVtIHtcclxuICBuYW1lOiBzdHJpbmc7XHJcbiAgY29uc3RydWN0b3IobmFtZTogc3RyaW5nKSB7XHJcbiAgICB0aGlzLm5hbWUgPSBuYW1lO1xyXG4gIH1cclxufVxyXG4iXX0=
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN5c3RlbS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O1lBQUEsMkJBQTJCO1lBQzNCO2dCQUVFLGdCQUFZLElBQVk7b0JBQ3RCLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO2dCQUNuQixDQUFDO2dCQUNILGFBQUM7WUFBRCxDQUxBLEFBS0MsSUFBQTtZQUxELDJCQUtDLENBQUEiLCJmaWxlIjoic3lzdGVtLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy9Db25zdHJ1Y3RvciBvZiB0aGUgc3lzdGVtXHJcbmV4cG9ydCBjbGFzcyBTeXN0ZW0ge1xyXG4gIG5hbWU6IHN0cmluZztcclxuICBjb25zdHJ1Y3RvcihuYW1lOiBzdHJpbmcpIHtcclxuICAgIHRoaXMubmFtZSA9IG5hbWU7XHJcbiAgfVxyXG59XHJcbiJdfQ==

@@ -17,7 +17,7 @@
     <script src="node_modules/angular2/bundles/http.js"></script>
 
   <script type="text/javascript">
-    function WriteCookie()
+    function WriteCookie() //Reception and backup of the cookie : last city
     {
        if( document.myform1.customer.value == "" ){
           alert("Enter some value!");
@@ -25,9 +25,10 @@
        }
        cookievalue= escape(document.myform1.customer.value) + ";";
        document.cookie="name=" + cookievalue;
+       Current_Date();
     }
 
-    function ReadCookie()
+    function ReadCookie() //Display of the cookie
      {
         var allcookies = document.cookie;
 
@@ -41,8 +42,31 @@
         }
         cityName = value;
         document.getElementById("city").value=cityName;
-        console.log(document.getElementById("city").value);
      }
+
+
+  function Current_Date(){ //Current date and the next four days
+        var date = new Date();
+        var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        var month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var numDay= date.getDate(); //Reception of the current day
+        var numMonth = date.getMonth(); //Reception of the current month
+        if((numMonth==30 && (numMonth+1)%2 == 0)||(numDay==31 && (numMonth+1)%2 == 1)) { //if it's the end of the month
+            numDay=0;
+            if(date.getMonth()==11){ //if it's the end of the year
+                numMonth=0;
+            }
+            else{
+                numMonth=numMonth+1;
+            }
+        }
+        document.getElementById("date0").value = day[date.getDay()] +" "+ date.getDate() + " " + month[numMonth]; //current date
+        document.getElementById("date1").value = day[date.getDay()+1] +" "+ [date.getDate() +1] + " " + month[numMonth]; //tomorrow
+        document.getElementById("date2").value = day[date.getDay()+2] +" "+ [date.getDate()+2] + " " + month[numMonth];
+        document.getElementById("date3").value = day[date.getDay()+3] +" "+ [date.getDate()+3] + " " + month[numMonth];
+        document.getElementById("date4").value = day[date.getDay()+4] +" "+ [date.getDate()+4] + " " + month[numMonth];
+
+    }
      </script>
 
     <link rel="stylesheet" href="css/style.css">

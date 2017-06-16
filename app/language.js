@@ -5,6 +5,7 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
+            //Constructor of the Language
             Language = (function () {
                 function Language(name) {
                     this.name = name;
@@ -16,4 +17,4 @@ System.register([], function(exports_1, context_1) {
     }
 });
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxhbmd1YWdlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7WUFBQTtnQkFFRSxrQkFBWSxJQUFZO29CQUN0QixJQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztnQkFDbkIsQ0FBQztnQkFDSCxlQUFDO1lBQUQsQ0FMQSxBQUtDLElBQUE7WUFMRCwrQkFLQyxDQUFBIiwiZmlsZSI6Imxhbmd1YWdlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNsYXNzIExhbmd1YWdlIHtcclxuICBuYW1lOiBzdHJpbmc7XHJcbiAgY29uc3RydWN0b3IobmFtZTogc3RyaW5nKSB7XHJcbiAgICB0aGlzLm5hbWUgPSBuYW1lO1xyXG4gIH0gXHJcbn1cclxuIl19
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxhbmd1YWdlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7WUFBQSw2QkFBNkI7WUFDN0I7Z0JBRUUsa0JBQVksSUFBWTtvQkFDdEIsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7Z0JBQ25CLENBQUM7Z0JBQ0gsZUFBQztZQUFELENBTEEsQUFLQyxJQUFBO1lBTEQsK0JBS0MsQ0FBQSIsImZpbGUiOiJsYW5ndWFnZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vQ29uc3RydWN0b3Igb2YgdGhlIExhbmd1YWdlXHJcbmV4cG9ydCBjbGFzcyBMYW5ndWFnZSB7XHJcbiAgbmFtZTogc3RyaW5nO1xyXG4gIGNvbnN0cnVjdG9yKG5hbWU6IHN0cmluZykge1xyXG4gICAgdGhpcy5uYW1lID0gbmFtZTtcclxuICB9XHJcbn1cclxuIl19

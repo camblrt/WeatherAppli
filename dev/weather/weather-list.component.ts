@@ -6,7 +6,7 @@ import {WEATHER_ITEMS} from "./weather.data"
 @Component({
     selector: 'weather-list',
     template: `
-
+ <!--Display of the list of cities with the weather-->
         <section class="weather-list">
             <weather-item *ngFor="#weatherItem of weatherItems" [item]="weatherItem"></weather-item>
         </section>

@@ -8,7 +8,14 @@ import {System} from "./../system"
 @Component ({
   selector : 'weather-search',
   template: `
+  <!--Display of the date -->
+  <input type="text" id="date0" hidden>
+  <input type="text" id="date1" hidden>
+  <input type="text" id="date2" hidden>
+  <input type="text" id="date3" hidden>
+  <input type="text" id="date4" hidden>
 
+  <!--Language's choice thanks radio buttons-->
   <div class="col-md-2 col-md-offset-1">
     <div class="panel panel-danger">
       <div class="panel-heading">Select your language</div>
@@ -30,7 +37,7 @@ import {System} from "./../system"
   </div>
 
 
-
+  <!--System's choice thanks radio buttons-->
   <div class="col-md-2 col-md-offset-1">
     <div class="panel panel-danger">
       <div class="panel-heading">Select your unit</div>
@@ -52,7 +59,7 @@ import {System} from "./../system"
   </div>
 
   <br><br>
-
+<!--Display of the last city looked for before the refreshment of the page-->
   <div class="col-md-3 col-md-offset-2">
     <div class="panel panel-danger">
       <ul class="list-group">
@@ -66,6 +73,7 @@ import {System} from "./../system"
     </div>
   </div>
 
+<!--City's choice and display of the last city when the user click on "Go!!"-->
   <div class="col-md-3 col-md-offset-2">
     <div class="panel panel-danger">
       <div class="panel-heading">Select your city</div>
@@ -74,7 +82,7 @@ import {System} from "./../system"
         <form (ngSubmit)="onSubmit(f)" #f="ngForm" name="myform1" action="">
           <input ngControl= "location" type="text" name="customer" placeholder="Find your city place" id="city" input="onSearchLocation(this.value)" required #input>
           <span class="input-group-btn">
-            <button type="submit" onclick="WriteCookie()" class="btn btn-danger btn-block btn-large" onclick="WriteCookie();">Search</button>
+            <button type="submit" onclick="WriteCookie()" class="btn btn-danger btn-block btn-large"onclick="WriteCookie();">Search</button>
           </span>
         </form>
         </li>
@@ -92,41 +100,46 @@ export class WeatherSearchComponent
   constructor(private _weatherService: WeatherService){}
 
 
-  chooseLang(value){
+  chooseLang(value){ //Send the language's choice towards WeatherService
     let lang= new Language(value);
     this._weatherService.changeLanguage(lang);
     console.log(lang);
   }
 
-  chooseSystem(value){
+  chooseSystem(value){ //Send the language's choice towards WeatherService
     let system= new System(value);
     this._weatherService.changeSystem(system);
     console.log(system);
 
   }
 
-  onSearchLocation(cityName: string){
+  onSearchLocation(cityName: string){//To display several cities
       this.searchStream
           .next(cityName);
   }
 
   onSubmit(form:ControlGroup){
+    //Receiving date and city from index.html
+      form.value.location=(<HTMLInputElement>document.getElementById("city")).value;
+      var date0 = (<HTMLInputElement>document.getElementById("date0")).value;
+      var date1 = (<HTMLInputElement>document.getElementById("date1")).value;
+      var date2 = (<HTMLInputElement>document.getElementById("date2")).value;
+      var date3 = (<HTMLInputElement>document.getElementById("date3")).value;
+      var date4 = (<HTMLInputElement>document.getElementById("date4")).value;
 
-    form.value.location=(<HTMLInputElement>document.getElementById("city")).value;
+      this._weatherService.searchWeatherData(form.value.location, this._weatherService.getLanguage(), this._weatherService.getSystem()) //Sending the cityname, the language and the system
+                          .subscribe(
+                                    data =>{//Receiving the data for the description, the temperature, the icon from the openweathermap API
+                                                const weatherItem= new WeatherItem(this._weatherService.getUnit(), data.city.name,
+                                                 data.list[0].weather[0].description, data.list[0].temp.max, data.list[0].temp.min, data.list[0].weather[0].icon, date0,
+                                                 data.list[1].weather[0].description, data.list[1].temp.max, data.list[1].temp.min, data.list[1].weather[0].icon, date1,
+                                                 data.list[2].weather[0].description, data.list[2].temp.max, data.list[2].temp.min, data.list[2].weather[0].icon, date2,
+                                                 data.list[3].weather[0].description, data.list[3].temp.max, data.list[3].temp.min, data.list[3].weather[0].icon, date3,
+                                                 data.list[4].weather[0].description, data.list[4].temp.max, data.list[4].temp.min, data.list[4].weather[0].icon, date4);
+                                                this._weatherService.addWeatherItem(weatherItem); // Adding these data in cities
+                                                console.log(weatherItem);
+                                              }
+                                  );
 
-    console.log(form.value.location);
-    this._weatherService.searchWeatherData(form.value.location, this._weatherService.getLanguage(), this._weatherService.getSystem())
-                        .subscribe(
-                                  data =>{
-                                              const weatherItem= new WeatherItem(this._weatherService.getUnit(), data.city.name,
-                                               data.list[0].weather[0].description, data.list[0].temp.day, data.list[0].weather[0].icon,
-                                               data.list[1].weather[0].description, data.list[1].temp.day, data.list[1].weather[0].icon,
-                                               data.list[2].weather[0].description, data.list[2].temp.day, data.list[2].weather[0].icon,
-                                               data.list[3].weather[0].description, data.list[3].temp.day, data.list[3].weather[0].icon,
-                                               data.list[4].weather[0].description, data.list[4].temp.day, data.list[4].weather[0].icon);
-                                              this._weatherService.addWeatherItem(weatherItem);
-
-                                            }
-                                );
-  }
+    }
 }

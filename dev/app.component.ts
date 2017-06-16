@@ -6,6 +6,7 @@ import {Language} from "./language"
 @Component({
     selector: 'my-app',
     template: `
+    <!--Document which display the different parts of the application-->
     <div class="row">
         <header>
             <h1>Weather Forecast Web Application</h1>
