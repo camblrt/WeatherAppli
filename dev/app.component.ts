@@ -2,7 +2,6 @@ import {Component} from 'angular2/core';
 import {WeatherListComponent} from "./weather/weather-list.component";
 import {WeatherSearchComponent} from "./weather/weather-search.component";
 import {SidebarComponent} from "./sidebar.component"
-import {Language} from "./language"
 @Component({
     selector: 'my-app',
     template: `

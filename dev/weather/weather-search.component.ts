@@ -20,18 +20,20 @@ import {System} from "./../system"
     <div class="panel panel-danger">
       <div class="panel-heading">Select your language</div>
       <ul class="list-group">
-        <li class="list-group-item">
-        <label>
-            <input #Francais name="language" type="radio" value="Francais" (change)="chooseLang(Francais.value)" />
-            Francais
-        </label>
-        </li>
-        <li class="list-group-item">
-        <label>
-            <input checked #English name="language" type="radio"  value="English" (click)="chooseLang(English.value)" />
+        <form name="myform2" action="">
+          <li class="list-group-item">
+            <label onclick="Current_Date();">
+              <input #Francais name="language" type="radio" value="Francais" (change)="chooseLang(Francais.value)" />
+              Francais
+            </label>
+          </li>
+          <li class="list-group-item">
+            <label onclick="Current_Date();">
+            <input checked #English name="language" type="radio" value="English" (click)="chooseLang(English.value)" />
             English
-        </label>
-        </li>
+            </label>
+          </li>
+        </form>
       </ul>
     </div>
   </div>
@@ -52,16 +54,18 @@ import {System} from "./../system"
         <label>
             <input #imperial name="system" type="radio"  value="imperial" (click)="chooseSystem(imperial.value)" />
             Imperial (°F)
+            <br><br>
         </label>
         </li>
       </ul>
     </div>
   </div>
 
-  <br><br>
-<!--Display of the last city looked for before the refreshment of the page-->
-  <div class="col-md-3 col-md-offset-2">
-    <div class="panel panel-danger">
+
+<!--Display the last city looked for before the refreshment of the page-->
+  <div class="col-md-5 col-md-offset-1">
+    <br><br>
+    <div class="panel panel-danger" align="center">
       <ul class="list-group">
         <li class="list-group-item">
           <p>Want to see the weather of your last research ?</p>
@@ -98,19 +102,18 @@ export class WeatherSearchComponent
   private searchStream = new Subject<string>();
   data: any = {};
   constructor(private _weatherService: WeatherService){}
-
+  city : string;
 
   chooseLang(value){ //Send the language's choice towards WeatherService
     let lang= new Language(value);
     this._weatherService.changeLanguage(lang);
-    console.log(lang);
+    this._weatherService.clearWeatherItems();
   }
 
   chooseSystem(value){ //Send the language's choice towards WeatherService
     let system= new System(value);
     this._weatherService.changeSystem(system);
-    console.log(system);
-
+    this._weatherService.clearWeatherItems();
   }
 
   onSearchLocation(cityName: string){//To display several cities
@@ -126,6 +129,10 @@ export class WeatherSearchComponent
       var date2 = (<HTMLInputElement>document.getElementById("date2")).value;
       var date3 = (<HTMLInputElement>document.getElementById("date3")).value;
       var date4 = (<HTMLInputElement>document.getElementById("date4")).value;
+
+      this.city = form.value.location;
+
+      this._weatherService.clearWeatherItems(); //clear previous weather items
 
       this._weatherService.searchWeatherData(form.value.location, this._weatherService.getLanguage(), this._weatherService.getSystem()) //Sending the cityname, the language and the system
                           .subscribe(

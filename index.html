@@ -14,6 +14,8 @@
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="dev/weather/weather.service.ts"></script>
+
     <script src="node_modules/angular2/bundles/http.js"></script>
 
   <script type="text/javascript">
@@ -43,9 +45,17 @@
 
 
   function Current_Date(){ //Current date and the next four days
+        lang= escape(document.myform2.language.value);
         var date = new Date();
-        var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-        var month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        if(lang == "Francais"){
+          var day = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+          var month = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"];
+        }
+        if(lang == "English"){
+          var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          var month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        }
+
         var numDay= date.getDate(); //Reception of the current day
         var numMonth = date.getMonth(); //Reception of the current month
         if((numMonth==30 && (numMonth+1)%2 == 0)||(numDay==31 && (numMonth+1)%2 == 1)) { //if it's the end of the month
@@ -62,7 +72,6 @@
         document.getElementById("date2").value = day[date.getDay()+2] +" "+ [date.getDate()+2] + " " + month[numMonth];
         document.getElementById("date3").value = day[date.getDay()+3] +" "+ [date.getDate()+3] + " " + month[numMonth];
         document.getElementById("date4").value = day[date.getDay()+4] +" "+ [date.getDate()+4] + " " + month[numMonth];
-
     }
      </script>
 
