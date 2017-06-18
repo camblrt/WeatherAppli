@@ -69,9 +69,11 @@ import {System} from "./../system"
       <ul class="list-group">
         <li class="list-group-item">
           <p>Want to see the weather of your last research ?</p>
-          <span class="input-group-btn">
-            <button  type="submit" onclick="ReadCookie()" class="btn btn-danger btn-block btn-large">GO !!</button>
-          </span>
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm" name="myform1" action="">
+            <span class="input-group-btn">
+              <button  type="submit" onclick="ReadCookie()" class="btn btn-danger btn-block btn-large">GO !!</button>
+            </span>
+          </form>
         </li>
       </ul>
     </div>
@@ -86,7 +88,7 @@ import {System} from "./../system"
         <form (ngSubmit)="onSubmit(f)" #f="ngForm" name="myform1" action="">
           <input ngControl= "location" type="text" name="customer" placeholder="Find your city place" id="city" input="onSearchLocation(this.value)" required #input>
           <span class="input-group-btn">
-            <button type="submit" onclick="WriteCookie()" class="btn btn-danger btn-block btn-large"onclick="WriteCookie();">Search</button>
+            <button type="submit" onclick="WriteCookie()" class="btn btn-danger btn-block btn-large">Search</button>
           </span>
         </form>
         </li>
