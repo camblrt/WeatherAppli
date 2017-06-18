@@ -69,7 +69,7 @@ import {System} from "./../system"
       <ul class="list-group">
         <li class="list-group-item">
           <p>Want to see the weather of your last research ?</p>
-          <form (ngSubmit)="onSubmit(f)" #f="ngForm" name="myform1" action="">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <span class="input-group-btn">
               <button  type="submit" onclick="ReadCookie()" class="btn btn-danger btn-block btn-large">GO !!</button>
             </span>
