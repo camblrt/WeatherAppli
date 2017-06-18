@@ -22,14 +22,14 @@ import {System} from "./../system"
       <ul class="list-group">
         <form name="myform2" action="">
           <li class="list-group-item">
-            <label onclick="Current_Date();">
-              <input #Francais name="language" type="radio" value="Francais" (change)="chooseLang(Francais.value)" />
+            <label>
+              <input #Francais name="language" type="radio" value="Francais" onclick="Current_Date();" (change)="chooseLang(Francais.value)" />
               Francais
             </label>
           </li>
           <li class="list-group-item">
-            <label onclick="Current_Date();">
-            <input checked #English name="language" type="radio" value="English" (click)="chooseLang(English.value)" />
+            <label>
+            <input checked #English name="language" type="radio" value="English" onclick="Current_Date();" (change)="chooseLang(English.value)" />
             English
             </label>
           </li>
@@ -65,7 +65,7 @@ import {System} from "./../system"
 <!--Display the last city looked for before the refreshment of the page-->
   <div class="col-md-5 col-md-offset-1">
     <br><br>
-    <div class="panel panel-danger" align="center">
+    <div class="panel panel-danger">
       <ul class="list-group">
         <li class="list-group-item">
           <p>Want to see the weather of your last research ?</p>
