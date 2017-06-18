@@ -65,7 +65,7 @@ import {System} from "./../system"
 <!--Display the last city looked for before the refreshment of the page-->
   <div class="col-md-5 col-md-offset-1">
     <br><br>
-    <div class="panel panel-danger">
+    <div class="panel panel-danger" align ="center">
       <ul class="list-group">
         <li class="list-group-item">
           <p>Want to see the weather of your last research ?</p>

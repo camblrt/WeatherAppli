@@ -12,7 +12,7 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
     <!--Display of the profile window with the default cities-->
     <div class="col-md-3 col-md-offset-1">
       <section class="box widget locations">
-        <div class="jumbotron-photo"><img src="img/Jumbotron.jpg" /></div>
+        <div class="jumbotron-photo"><img src="css/img/sky.jpg" /></div>
           <div class="jumbotron-contents">
             <article class="profile" *ngFor="#profile of profiles" (click)="onLoadProfile(profile)">
                 <div class="panel panel-danger">
